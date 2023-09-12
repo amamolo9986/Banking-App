@@ -20,8 +20,9 @@
 				<td th:text="${storedTransaction.retailer}"></td>
 				<td th:text="${storedTransaction.type == 'D' ? '' : storedTransaction.amount}"></td>
 				<td th:text="${storedTransaction.type == 'C' ? '' : storedTransaction.amount}"></td>
-				<!-- <td th:if="${storedTransaction.type == 'C'}"></td> 
-                <td th:if="${storedTransaction.type == 'D'}"></td> -->
+				<!-- If storedTransaction.type is 'D', nothing is displayed in the table cell.
+					If storedTransaction.type is not 'D', the amount property of storedTransaction 
+						is displayed in the table cell. -->
 			</tr>
 		</table>
 	</body>
