@@ -15,15 +15,22 @@
 				<th>Funds Out</th>
 			</tr>
 			<tr th:each="storedTransaction : ${transaction}">
-				<td th:text="${storedTransaction.id}"></td>
+				<td>
+					<a th:href="@{/transactions/{transactionId}(transactionId=${storedTransaction.id})}">
+						[[${storedTransaction.id}]]
+					</a>
+				</td>
 				<td th:text="${storedTransaction.date}"></td>
 				<td th:text="${storedTransaction.retailer}"></td>
 				<td th:text="${storedTransaction.type == 'D' ? '' : storedTransaction.amount}"></td>
 				<td th:text="${storedTransaction.type == 'C' ? '' : storedTransaction.amount}"></td>
 				<!-- If storedTransaction.type is 'D', nothing is displayed in the table cell.
-					If storedTransaction.type is not 'D', the amount property of storedTransaction 
+					 If storedTransaction.type is not 'D', the amount property of storedTransaction 
 						is displayed in the table cell. -->
 			</tr>
 		</table>
+		<a href="/transactions">Back</a>
+		<!-- th:if="${storedTransaction.id != null}"  <<This doesnt work, not sure why
+		 		If stired transaction is not equal to null, display back button -->
 	</body>
 </html>

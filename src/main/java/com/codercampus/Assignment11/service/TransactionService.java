@@ -18,4 +18,8 @@ public class TransactionService {
 		return transactionRepository.findAll();
 	}
 
+	public Transaction findById(Integer transactionId) {
+		return transactionRepository.findById(transactionId);
+	}
+
 }

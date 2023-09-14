@@ -22,6 +22,10 @@ public class TransactionRepository {
 	public List<Transaction> findAll () {
 		return transactions;
 	}
+	
+	public Transaction findById(Integer personId) {
+		return transactions.get(personId - 1);
+	}
 
 	@SuppressWarnings("unchecked")
 	private void populateData() {
@@ -31,6 +35,5 @@ public class TransactionRepository {
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		} 
-		
 	}
 }
