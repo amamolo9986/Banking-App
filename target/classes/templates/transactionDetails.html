@@ -1,0 +1,32 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Transaction Details</title>
+</head>
+
+<body>
+
+    <h1>Transaction ID:
+        [[${transaction.id}]]
+        ([[${transaction.type == 'C' ? 'Credit' : 'Debit'}]])
+    </h1>
+
+    <div>
+        Date:
+        [[${transaction.date}]]
+    </div>
+    <div>
+        Amount:
+        [[${transaction.type == 'C' ? '-' + transaction.amount : transaction.amount}]]
+    </div>
+    <div>
+        Description:
+        [[${transaction.description}]]
+    </div>
+
+    <div>
+        <a href="/transactions">Back</a>
+    </div>
+</body>
+
+</html>
