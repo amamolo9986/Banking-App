@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Transaction implements Serializable {
+public class Transaction implements Serializable, Comparable<Transaction> {
 	private static final long serialVersionUID = 5489045104890844953L;
 	
 	private Long id;
@@ -54,6 +54,10 @@ public class Transaction implements Serializable {
 	public String toString() {
 		return "Transaction [id=" + id + ", retailer=" + retailer + ", description=" + description + ", date=" + date
 				+ ", amount=" + amount + ", type=" + type + "]";
+	}
+	@Override
+	public int compareTo(Transaction o) {
+		return this.getDate().compareTo(o.getDate());
 	}
 	
 }
