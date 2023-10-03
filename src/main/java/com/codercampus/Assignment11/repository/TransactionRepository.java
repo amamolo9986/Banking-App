@@ -30,6 +30,11 @@ public class TransactionRepository {
 						   .filter(t -> t.getId().equals(transactionId))
 						   .findFirst()
 						   .orElse(null);
+		
+	// Initially i used an index based lookup, but it no longer worked once
+	// the list was sorted differently. Switching to a stream based look up
+	// filters the transactions based on their id's so we can find the 
+	// transactions by their id's no matter where they are in the list.
 	}
 
 	@SuppressWarnings("unchecked")
