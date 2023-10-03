@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -26,8 +25,11 @@ public class TransactionRepository {
 		return transactions;
 	}
 	
-	public Transaction findById(Integer personId) {
-		return transactions.get(personId - 1);
+	public Transaction findById(Long transactionId) {
+		return transactions.stream()
+						   .filter(t -> t.getId().equals(transactionId))
+						   .findFirst()
+						   .orElse(null);
 	}
 
 	@SuppressWarnings("unchecked")
